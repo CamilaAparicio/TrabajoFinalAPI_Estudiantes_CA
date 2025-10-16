@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST /estudiantes
-router.post('/estudiantes', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const nuevoEstudiante = new Estudiante(req.body);
     await nuevoEstudiante.save();
