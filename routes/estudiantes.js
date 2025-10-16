@@ -39,15 +39,15 @@ router.post('/', async (req, res) => {
 // PUT /estudiantes por ID
 router.put('/:id', async (req, res) => {
   try {
-    const actualizado = await Estudiante.findByIdAndUpdate(
+    const Estudianteactualizado = await Estudiante.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true, runValidators: true }
     );
-    if (!actualizado) return res.status(404).json({ error: 'Estudiante no encontrado' });
-    res.json(actualizado);
+    if (!Estudianteactualizado) return res.status(404).json({ error: 'Estudiante no encontrado' });
+    res.json(Estudianteactualizado);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: 'Error al actualizar estudiante' });
   }
 });
 
