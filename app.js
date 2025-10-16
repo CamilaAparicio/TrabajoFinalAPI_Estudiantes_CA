@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.send('Bienvenida a la API de Gestión de Estudiantes');
 });
 
-app.use('/api/estudiantes', estudiantesRoutes);
+app.use('/api', estudiantesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
