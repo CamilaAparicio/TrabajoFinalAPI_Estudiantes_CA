@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Estudiante = require('../models/Estudiante');
 
-// GET /estudiantes?curso=Arte
+// GET /estudiantes por curso
 router.get('/', async (req, res) => {
   try {
     const { curso } = req.query;
