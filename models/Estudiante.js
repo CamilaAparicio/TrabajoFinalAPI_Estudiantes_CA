@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const cursosValidos = ['Matemática', 'Historia', 'Ciencias', 'Arte'];
+
 const estudianteSchema = new mongoose.Schema({
   nombre: {
     type: String,
@@ -17,13 +19,15 @@ const estudianteSchema = new mongoose.Schema({
   },
   cursos: {
     type: [String],
-    enum: {
-      values: ['Matemática', 'Historia', 'Ciencias', 'Arte'],
+    enum: cursosValidos,
+    required: true,
+    validate: {
+      validator: function (arr) {
+        return arr.every(curso => cursosValidos.includes(curso));
+      },
       message: 'Curso equivocado. Debe ser Matemática, Historia, Ciencias o Arte'
-    },
-    required: true
+    }
   }
-},
-{ timestamps: true });
+}, { timestamps: true });
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);
