@@ -1,7 +1,7 @@
 {
   "name": "proyectofinalapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para la gestión de estudiantes",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
