@@ -3,25 +3,25 @@ const mongoose = require('mongoose');
 const estudianteSchema = new mongoose.Schema({
   nombre: {
     type: String,
-    required: [true, 'Debes ingresar un nombre']
+    required: true
   },
   apellido: {
     type: String,
-    required: [true, 'Debes ingresar un apellido']
+    required: true
   },
   email: {
     type: String,
-    required: [true, 'Debes ingresar un email'],
+    required: true,
     match: [/.+\@.+\..+/, 'Debes ingresar un email válido'],
     unique: true
   },
-  curso: {
-    type: String,
+  cursos: {
+    type: [String],
     enum: {
       values: ['Matemática', 'Historia', 'Ciencias', 'Arte'],
       message: 'Curso equivocado. Debe ser Matemática, Historia, Ciencias o Arte'
     },
-    required: [true, 'Debes ingresar un curso']
+    required: true
   }
 },
 { timestamps: true });
