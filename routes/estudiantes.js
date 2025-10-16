@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Estudiante = require('../models/Estudiante');
 
-// GET /estudiantes por curso
+// GET / filtro estudiantes por curso
 router.get('/', async (req, res) => {
   try {
     const { curso } = req.query;
@@ -28,15 +28,15 @@ router.get('/:id', async (req, res) => {
 // POST /estudiantes
 router.post('/', async (req, res) => {
   try {
-    const nuevo = new Estudiante(req.body);
-    await nuevo.save();
-    res.status(201).json(nuevo);
+    const nuevoEstudiante = new Estudiante(req.body);
+    await nuevoEstudiante.save();
+    res.status(201).json(nuevoEstudiante);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: 'Error al crear estudiante' });
   }
 });
 
-// PUT /estudiantes/:id
+// PUT /estudiantes por ID
 router.put('/:id', async (req, res) => {
   try {
     const actualizado = await Estudiante.findByIdAndUpdate(
