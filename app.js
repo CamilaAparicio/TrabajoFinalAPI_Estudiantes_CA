@@ -1,14 +1,20 @@
 const express = require('express');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const estudiantesRoutes = require('./routes/estudiantes');
 const app = express();
-const estudiantesRouter = require('./routes/estudiantes');
+
+dotenv.config();
+connectDB();
 
 app.use(express.json());
-app.use('/estudiantes', estudiantesRouter);
 
 app.get('/', (req, res) => {
-  res.send('¡Hola Camila desde Express!');
+  res.send('Bienvenida a la API de Gestión de Estudiantes');
 });
 
-app.listen(3000, () => {
-  console.log('Servidor Express escuchando en http://localhost:3000');
+app.use('/api', estudiantesRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
