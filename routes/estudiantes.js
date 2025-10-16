@@ -1,32 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const Estudiante = require('../models/Estudiante');
-
-// GET / filtro estudiantes por curso
+const e = require('express');
+  
+//GET /obtener estudiantes, con filtro opcional por curso
 router.get('/', async (req, res) => {
   try {
     const { curso } = req.query;
     const filtro = curso ? { cursos: { $in: [curso] } } : {};
     const estudiantes = await Estudiante.find(filtro);
+    if (curso) {
+      estudiantes = await Estudiante.find({ curso });
+    }else {
+      estudiantes = await Estudiante.find();
+    }
     res.json(estudiantes);
   } catch (err) {
     res.status(500).json({ error: 'Error al obtener estudiantes' });
   }
 });
 
-// GET /estudiantes/:id
-router.get('/:id', async (req, res) => {
-  try {
-    const estudiante = await Estudiante.findById(req.params.id);
-    if (!estudiante) return res.status(404).json({ error: 'Estudiante no encontrado' });
-    res.json(estudiante);
-  } catch (err) {
-    res.status(400).json({ error: 'ID inválido' });
-  }
-});
-
 // POST /estudiantes
-router.post('/', async (req, res) => {
+router.post('/estudiante', async (req, res) => {
   try {
     const nuevoEstudiante = new Estudiante(req.body);
     await nuevoEstudiante.save();
@@ -37,7 +32,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT /estudiantes por ID
-router.put('/:id', async (req, res) => {
+router.put('/estudiante/:id', async (req, res) => {
   try {
     const Estudianteactualizado = await Estudiante.findByIdAndUpdate(
       req.params.id,
@@ -52,7 +47,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE /estudiantes por ID
-router.delete('/:id', async (req, res) => {
+router.delete('/estudiante/:id', async (req, res) => {
   try {
     const Estudianteeliminado = await Estudiante.findByIdAndDelete(req.params.id);
     if (!Estudianteeliminado) return res.status(404).json({ error: 'Estudiante no encontrado' });
