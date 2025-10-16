@@ -6,7 +6,7 @@ const Estudiante = require('../models/Estudiante');
 router.get('/estudiantes', async (req, res) => {
   try {
     const { curso } = req.query;
-    const filtro = curso ? { cursos: { $in: [curso] } } : {};
+    const filtro = curso ? { cursos: { $in: [curso] } }.select(nombre, apellido, email) : {};
     const estudiantes = await Estudiante.find(filtro);
     res.json(estudiantes);
   } catch (err) {
