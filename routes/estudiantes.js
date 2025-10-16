@@ -51,14 +51,14 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE /estudiantes/:id
+// DELETE /estudiantes por ID
 router.delete('/:id', async (req, res) => {
   try {
-    const eliminado = await Estudiante.findByIdAndDelete(req.params.id);
-    if (!eliminado) return res.status(404).json({ error: 'Estudiante no encontrado' });
+    const Estudianteeliminado = await Estudiante.findByIdAndDelete(req.params.id);
+    if (!Estudianteeliminado) return res.status(404).json({ error: 'Estudiante no encontrado' });
     res.status(204).send();
   } catch (err) {
-    res.status(400).json({ error: 'ID inválido' });
+    res.status(400).json({ error: 'ID incorrecto' });
   }
 });
 
