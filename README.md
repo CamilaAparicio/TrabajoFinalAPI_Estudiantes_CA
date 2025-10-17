@@ -27,9 +27,13 @@ Aquí vas a poder organizar la información de los estudiantes!
 - **Base de Datos**: MongoDB con Mongoose.
 ---
 ## Cómo instalar y usar
-'''git clone https://github.com/CamilaAparicio/TrabajoFinalAPI_Estudiantes_CA.git'''
+```bash 
+git clone https://github.com/CamilaAparicio/TrabajoFinalAPI_Estudiantes_CA.git
+```
 ---
 ## Estructura del proyecto
+
+```plaintext
 PROYECTOFINALAPI
 |--config/              #configuración de la base de datos
 |     |-db.js           
@@ -41,6 +45,7 @@ PROYECTOFINALAPI
 |--app.js
 |--package.json
 |--vercel.json           #Conexión con Vercel
+```
 ---
 ## Endpoints:
 |  Método   |     Endpoint    |         Descripción             |
@@ -53,7 +58,7 @@ PROYECTOFINALAPI
 
 ---
 ## Créditos:
-Este proyeccto fue desarrollado por:
+Este proyecto fue desarrollado por:
 Aparicio, Camila Antonella
 https://github.com/CamilaAparicio
 
