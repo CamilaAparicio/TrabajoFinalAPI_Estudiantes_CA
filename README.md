@@ -32,7 +32,6 @@ git clone https://github.com/CamilaAparicio/TrabajoFinalAPI_Estudiantes_CA.git
 ```
 ---
 ## Estructura del proyecto
-
 ```plaintext
 PROYECTOFINALAPI
 |--config/              #configuración de la base de datos
@@ -55,6 +54,51 @@ PROYECTOFINALAPI
 |   POST    |/estudiantes     | Crea un nuevo estudiante        |
 |    PUT    |/estudiantes/:id | Actualiza un estudiante por id  |
 |  DELETE   |/estudiantes/:id | Elimina un estudiante por id    |
+
+---
+## Ejemplo de uso:
+```bash
+{
+    "_id": "68f121910f5544bba417c307",
+    "nombre": "Camila",
+    "apellido": "Aparicio",
+    "email": "camila@oldmail.com",
+    "cursos": [
+      "Matemática",
+      "Arte"
+    ],
+    "createdAt": "2025-10-16T16:47:13.998Z",
+    "updatedAt": "2025-10-16T16:47:13.998Z",
+    "__v": 0
+  },
+  {
+    "_id": "68f125550f5544bba417c30d",
+    "nombre": "Eduardo",
+    "apellido": "Rodriguez",
+    "email": "edurodriguez@example.com",
+    "cursos": [
+      "Ciencias",
+      "Arte"
+    ],
+    "createdAt": "2025-10-16T17:03:17.018Z",
+    "updatedAt": "2025-10-16T17:03:17.018Z",
+    "__v": 0
+  },
+  {
+    "_id": "68f125fd0f5544bba417c30f",
+    "nombre": "Jessica",
+    "apellido": "Salvatore",
+    "email": "jessalvatore@duckmail.com",
+    "cursos": [
+      "Historia",
+      "Ciencias"
+    ],
+    "createdAt": "2025-10-16T17:06:05.126Z",
+    "updatedAt": "2025-10-16T17:06:05.126Z",
+    "__v": 0
+  }
+]
+```
 
 ---
 ## Créditos:
