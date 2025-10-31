@@ -4,3 +4,4 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
+module.exports = corsOptions;
