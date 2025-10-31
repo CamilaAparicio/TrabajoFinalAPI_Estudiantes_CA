@@ -34,12 +34,4 @@ export default function handler(req, res) {
     res.status(200).end();
     return;
   }
-
-  // lógica de tu endpoint
-  if (req.method === 'DELETE') {
-    const { id } = req.query;
-    // eliminar estudiante con ese id...
-    res.status(200).json({ mensaje: `Estudiante ${id} eliminado` });
-  }
 }
-module.exports = app;
