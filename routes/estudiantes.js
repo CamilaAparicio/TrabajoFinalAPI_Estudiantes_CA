@@ -12,6 +12,9 @@ router.get('/estudiantes', async (req, res) => {
   } catch (err) {
     console.error('Error en GET /estudiantes:', err);
     res.status(500).json({ error: 'Error al obtener estudiantes' });
+    if (!req.query.curso) {
+      return res.status(400).json({ error: 'Complete el campo curso' });
+    }
   }
 });
 
