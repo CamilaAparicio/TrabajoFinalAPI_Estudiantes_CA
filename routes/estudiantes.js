@@ -7,7 +7,7 @@ router.get('/estudiantes', async (req, res) => {
   try {
     const { curso } = req.query;
     const filtro = curso ? { cursos: { $in: [curso] } } : {};
-    const estudiantes = await Estudiante.find(filtro).select('nombre apellido email');
+    const estudiantes = await Estudiante.find(filtro).select('nombre apellido email cursos');
     res.json(estudiantes);
   } catch (err) {
     console.error('Error en GET /estudiantes:', err);
