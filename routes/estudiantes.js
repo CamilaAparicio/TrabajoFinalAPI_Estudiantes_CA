@@ -11,9 +11,9 @@ router.get('/estudiantes', async (req, res) => {
       return res.status(400).json({ error: 'Complete el campo curso' });
     }
     
-    const filtro = curso ? { curso: { $in: [curso] } } : {};
+    const filtro = curso ? { cursos: { $in: [curso] } } : {};
 
-    const estudiantes = await Estudiante.find(filtro).select('nombre apellido email curso');
+    const estudiantes = await Estudiante.find(filtro).select('nombre apellido email cursos');
     res.json(estudiantes);
   } catch (err) {
     console.error('Error en GET /estudiantes:', err);
