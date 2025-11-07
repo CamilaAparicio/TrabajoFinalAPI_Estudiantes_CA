@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST: crear un nuevo estudiante
-router.post('/estudiantes', async (req, res) => {
+router.post('/crear', async (req, res) => {
   try {
     const nuevoEstudiante = new Estudiante(req.body);
     await nuevoEstudiante.save();
