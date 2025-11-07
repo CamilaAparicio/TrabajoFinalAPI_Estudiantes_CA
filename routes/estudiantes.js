@@ -17,7 +17,7 @@ router.get('/estudiantes', async (req, res) => {
 });
 
 //Get: obtener estudiantes por ID
-router.get('/:id', async (req, res) => {
+router.get('estudantes/:id', async (req, res) => {
   try {
     const estudiantes = await Estudiante.findById(req.params.id);
     if (!estudiantes) return res.status(404).json({ error: 'Estudiante no encontrado' });
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST: crear un nuevo estudiante
-router.post('/estudiante', async (req, res) => {
+router.post('/estudiantes', async (req, res) => {
   try {
     const nuevoEstudiante = new Estudiante(req.body);
     await nuevoEstudiante.save();
