@@ -4,13 +4,13 @@ const Estudiante = require('../models/Estudiante');
   
 //GET: obtener estudiantes, con filtro opcional por curso
 router.get('/estudiantes', async (req, res) => {
-  const { curso } = req.query;
+const { curso } = req.query;
 
-  try {
-    const filtro = curso ? { cursos: { $in: [curso] } } : {};
-    const estudiantes = await Estudiante.find(filtro).select('nombre apellido email cursos');
-    res.json(estudiantes);
-  } catch (err) {
+try {
+  const filtro = {}; 
+  const estudiantes = await Estudiante.find(filtro).select('nombre apellido email cursos');
+   res.json(estudiantes); // Si falla, es la conexión o el modelo.
+ } catch (err) {
     console.error('Error en GET /estudiantes:', err);
     res.status(500).json({ error: 'Error al obtener estudiantes' });
   }
