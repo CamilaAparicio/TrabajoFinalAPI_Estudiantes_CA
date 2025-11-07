@@ -17,7 +17,7 @@ router.get('/api/estudiantes', async (req, res) => {
 });
 
 //Get: obtener estudiantes por ID
-router.get('api/estudantes/:id', async (req, res) => {
+router.get('/estudantes/:id', async (req, res) => {
   try {
     const estudiantes = await Estudiante.findById(req.params.id);
     if (!estudiantes) return res.status(404).json({ error: 'Estudiante no encontrado' });
