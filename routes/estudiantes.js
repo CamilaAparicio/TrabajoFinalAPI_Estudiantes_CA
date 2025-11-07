@@ -6,7 +6,7 @@ const Estudiante = require('../models/Estudiante');
 const isValidObjectId = id => /^[0-9a-fA-F]{24}$/.test(id);
   
 //GET: obtener estudiantes, con filtro opcional por curso
-router.get('/', async (req, res) => {
+router.get('/estudiantes', async (req, res) => {
   const { curso } = req.query;
   
   try {
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 });
 
 //Get: obtener estudiante por ID
-router.get('/:id', async (req, res) => {
+router.get('/estudiantes/:id', async (req, res) => {
   const { id } = req.params;
   
   if (!isValidObjectId(id)) {
@@ -58,7 +58,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST: crear un nuevo estudiante
-router.post('/', async (req, res) => {
+router.post('/estudiantes', async (req, res) => {
   try {
     const nuevoEstudiante = new Estudiante(req.body);
     await nuevoEstudiante.save();
@@ -73,7 +73,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT: Actualizar estudiante por ID
-router.put('/:id', async (req, res) => {
+router.put('/estudiantes/:id', async (req, res) => {
   const { id } = req.params;
 
   if (!isValidObjectId(id)) {
@@ -102,7 +102,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE: eliminar estudiante por ID
-router.delete('/:id', async (req, res) => {
+router.delete('/estudiantes/:id', async (req, res) => {
   const { id } = req.params;
 
   if (!isValidObjectId(id)) {
