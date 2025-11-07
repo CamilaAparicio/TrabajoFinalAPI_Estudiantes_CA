@@ -3,7 +3,7 @@ const router = express.Router();
 const Estudiante = require('../models/Estudiante');
   
 //GET: obtener estudiantes, con filtro opcional por curso
-router.get('/api/estudiantes', async (req, res) => {
+router.get('/estudiantes', async (req, res) => {
   const { curso } = req.query;
 
   try {
@@ -28,7 +28,7 @@ router.get('/estudantes/:id', async (req, res) => {
 });
 
 // POST: crear un nuevo estudiante
-router.post('/api/estudiantes', async (req, res) => {
+router.post('/estudiantes', async (req, res) => {
   try {
     const nuevoEstudiante = new Estudiante(req.body);
     await nuevoEstudiante.save();
@@ -39,7 +39,7 @@ router.post('/api/estudiantes', async (req, res) => {
 });
 
 // PUT: Actualizar estudiantes por ID
-router.put('/api/estudiantes/:id', async (req, res) => {
+router.put('estudiantes/:id', async (req, res) => {
   try {
     const estudianteActualizado = await Estudiante.findByIdAndUpdate(
       req.params.id,
@@ -54,7 +54,7 @@ router.put('/api/estudiantes/:id', async (req, res) => {
 });
 
 // DELETE: eliminar estudiantes por ID
-router.delete('api/estudiantes/:id', async (req, res) => {
+router.delete('estudiantes/:id', async (req, res) => {
   try {
     const estudianteEliminado = await Estudiante.findByIdAndDelete(req.params.id);
     if (!estudianteEliminado) return res.status(404).json({ error: 'Estudiante no encontrado' });

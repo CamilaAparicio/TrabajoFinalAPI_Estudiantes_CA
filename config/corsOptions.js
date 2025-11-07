@@ -1,7 +1,6 @@
 const whitelist = [
     'http://localhost:5173',
-    'https://api-estudiantes-khaki.vercel.app',
-    
+    'https://gestion-de-estudiantes.vercel.app',
 ];
 
 const corsOptions = {
