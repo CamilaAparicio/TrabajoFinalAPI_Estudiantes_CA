@@ -39,7 +39,7 @@ router.post('/estudiantes', async (req, res) => {
 });
 
 // PUT: Actualizar estudiantes por ID
-router.put('estudiantes/:id', async (req, res) => {
+router.put('/estudiantes/:id', async (req, res) => {
   try {
     const estudianteActualizado = await Estudiante.findByIdAndUpdate(
       req.params.id,
@@ -54,7 +54,7 @@ router.put('estudiantes/:id', async (req, res) => {
 });
 
 // DELETE: eliminar estudiantes por ID
-router.delete('estudiantes/:id', async (req, res) => {
+router.delete('/estudiantes/:id', async (req, res) => {
   try {
     const estudianteEliminado = await Estudiante.findByIdAndDelete(req.params.id);
     if (!estudianteEliminado) return res.status(404).json({ error: 'Estudiante no encontrado' });
