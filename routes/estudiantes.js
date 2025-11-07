@@ -5,14 +5,9 @@ const Estudiante = require('../models/Estudiante');
 //GET: obtener estudiantes, con filtro opcional por curso
 router.get('/estudiantes', async (req, res) => {
   const { curso } = req.query;
-  
-  try {
-    if(curso && typeof curso !== 'string'){
-      return res.status(400).json({ error: 'Complete el campo curso' });
-    }
-    
-    const filtro = curso ? { cursos: { $in: [curso] } } : {};
 
+  try {
+    const filtro = curso ? { cursos: { $in: [curso] } } : {};
     const estudiantes = await Estudiante.find(filtro).select('nombre apellido email cursos');
     res.json(estudiantes);
   } catch (err) {
